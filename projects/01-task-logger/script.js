@@ -1,7 +1,20 @@
+
+// closures concept here
+function createCounter() {
+  let count = 0; // Private variable 
+
+  return function() {
+    count++;
+    return count;
+  };
+}
+
+const getNextTaskNumber = createCounter();
+
 const taskInput = document.getElementById('task-input');
 const addBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('task-list');
-                                // async operations 
+
 addBtn.addEventListener('click', function() {
   // remove whitespace
   const text = taskInput.value.trim();
@@ -11,8 +24,10 @@ addBtn.addEventListener('click', function() {
     return;
   }
 
+  const taskNumber = getNextTaskNumber();
+
   const li = document.createElement('li');
-  li.textContent = text;
+  li.textContent = `${taskNumber}. ${text}`;
   taskList.appendChild(li);
 
   // Clear input field
