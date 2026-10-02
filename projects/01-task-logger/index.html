@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Task Logger</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <input type="text" id="task-input" placeholder="Enter task...">
-  <button id="add-btn">Add Task</button>
+  <div class="container">
+    <h1>Task Logger</h1>
 
-  <ul id="task-list"></ul>
+    <div class="input-section">
+      <input type="text" id="task-input" placeholder="Enter task...">
+      <button id="add-btn">Add Task</button>
+    </div>
+
+    <ul id="task-list"></ul>
+  </div>
 <!-- agar script ko pehele rakhenge toh it will result in reference error cause it cannot find the ids or tags since its loaded after the script -->
   <script src="script.js"></script>
 </body>
