@@ -33,3 +33,11 @@ addBtn.addEventListener('click', function() {
   // Clear input field
   taskInput.value = "";
 });
+
+taskList.addEventListener('click', function(event) {
+  console.log("Clicked element:", event.target);
+  console.log("Tag name:", event.target.tagName);
+  if (event.target.tagName === 'LI') {
+    event.target.classList.toggle('completed');
+  }
+});

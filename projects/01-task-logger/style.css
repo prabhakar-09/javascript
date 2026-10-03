@@ -58,3 +58,9 @@ li {
   border: 1px solid #30363d;
   word-break: break-word;
 }
+
+li.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+  background-color: #161b22;
+}
