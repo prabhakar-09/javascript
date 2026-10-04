@@ -1,4 +1,4 @@
-
+//
 // closures concept here
 function createCounter() {
   let count = 0; // Private variable 
