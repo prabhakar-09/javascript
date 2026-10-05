@@ -1,7 +1,7 @@
 //
 // closures concept here
 function createCounter() {
-  let count = 0; // Private variable 
+  let count = 0; 
 
   return function() {
     count++;
@@ -27,7 +27,18 @@ addBtn.addEventListener('click', function() {
   const taskNumber = getNextTaskNumber();
 
   const li = document.createElement('li');
-  li.textContent = `${taskNumber}. ${text}`;
+  
+  
+  const span = document.createElement('span');
+  span.textContent = `${taskNumber}. ${text}`;
+  li.appendChild(span);
+
+  // Delete Button
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = '✕';
+  deleteBtn.className = 'delete-btn';
+  li.appendChild(deleteBtn);
+
   taskList.appendChild(li);
 
   // Clear input field
@@ -35,9 +46,13 @@ addBtn.addEventListener('click', function() {
 });
 
 taskList.addEventListener('click', function(event) {
-  console.log("Clicked element:", event.target);
-  console.log("Tag name:", event.target.tagName);
-  if (event.target.tagName === 'LI') {
-    event.target.classList.toggle('completed');
+  if (event.target.classList.contains('delete-btn')) {
+    const li = event.target.parentElement;
+    li.remove();
+  } 
+  
+  else if (event.target.tagName === 'LI' || event.target.tagName === 'SPAN') {
+    const li = event.target.closest('li');
+    li.classList.toggle('completed');
   }
 });
