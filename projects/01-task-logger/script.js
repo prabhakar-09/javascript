@@ -56,3 +56,26 @@ taskList.addEventListener('click', function(event) {
     li.classList.toggle('completed');
   }
 });
+
+// --- Phase 5: Async JS & Event Loop ---
+
+function saveTaskToServer(taskText) {
+  return new Promise(function(resolve, reject) {
+    console.log("1. Sending task to server...");
+
+    setTimeout(function() {
+      if (taskText) {
+        resolve(`Server Response: Task "${taskText}" saved successfully!`);
+      } else {
+        reject("Server Error: Task cannot be empty!");
+      }
+    }, 2000);
+  });
+}
+
+async function testSave() {
+  console.log("A. Before saving...");
+  const result = await saveTaskToServer("Master Async JS");
+  console.log("B.", result);
+  console.log("C. After saving completed!");
+}
