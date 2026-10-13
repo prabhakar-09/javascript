@@ -38,5 +38,32 @@ fetch("./data/Wholesale customers data.csv")
     averageGroceryElement.textContent =
     `Average Grocery Spend: ${averageGrocery.toFixed(2)}`;
 
+    let highestTotal = 0;
+let highestCustomer = null;
+
+for (const customer of customers) {
+  const customerTotal =
+    customer.fresh +
+    customer.milk +
+    customer.grocery +
+    customer.frozen +
+    customer.detergentsPaper +
+    customer.delicatessen;
+
+  if (customerTotal > highestTotal) {
+      highestTotal = customerTotal;
+      highestCustomer = customer;
+    }
+  }
+
+  const highestCustomerElement =
+  document.getElementById("highest-customer");
+
+highestCustomerElement.textContent =
+  `Highest-Spending Customer: #${highestCustomer.id} - Total Spend: ${highestTotal}`;
+
+  console.log(highestTotal);
+  console.log(highestCustomer);
+
 });
 
