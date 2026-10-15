@@ -65,5 +65,48 @@ highestCustomerElement.textContent =
   console.log(highestTotal);
   console.log(highestCustomer);
 
+  const tableBody =
+  document.getElementById("customer-table-body");
+
+function renderCustomers(customerList) {
+  tableBody.innerHTML = "";
+
+  const customersToShow = customerList.slice(0, 10);
+
+  for (const customer of customersToShow) {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${customer.id}</td>
+      <td>${customer.channel}</td>
+      <td>${customer.region}</td>
+      <td>${customer.fresh}</td>
+      <td>${customer.milk}</td>
+      <td>${customer.grocery}</td>
+    `;
+
+    tableBody.appendChild(row);
+  }
+}
+
+renderCustomers(customers);
+const channelFilter =
+  document.getElementById("channel-filter");
+
+channelFilter.addEventListener("change", function () {
+  const selectedChannel = channelFilter.value;
+
+  if (selectedChannel === "all") {
+    renderCustomers(customers);
+    return;
+  }
+
+  const filteredCustomers = customers.filter(function (customer) {
+    return customer.channel === Number(selectedChannel);
+  });
+
+  renderCustomers(filteredCustomers);
+});
+
 });
 

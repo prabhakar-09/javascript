@@ -32,6 +32,33 @@
 
     </section>
 
+  <section>
+  <h2>Customer Records</h2>
+  <label for="channel-filter">Filter by Channel:</label>
+
+  <select id="channel-filter">
+    <option value="all">All</option>
+    <option value="1">Channel 1</option>
+    <option value="2">Channel 2</option>
+  </select>
+
+  <table id="customer-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Channel</th>
+        <th>Region</th>
+        <th>Fresh</th>
+        <th>Milk</th>
+        <th>Grocery</th>
+      </tr>
+    </thead>
+
+    <tbody id="customer-table-body">
+    </tbody>
+  </table>
+</section>
+
   <script src="script.js"></script>
 </body>
 </html>
