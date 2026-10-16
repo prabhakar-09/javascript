@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <button id="test-button">Click Me</button>
+
+  <script>
+    const button = document.getElementById("test-button");
+
+    let count = 0;
+
+    button.addEventListener("click", function () {
+    count++;
+    console.log(`Button clicked ${count} times`);
+    });
+
+    console.log("Page ready");
+  </script>
+
+</body>
+</html>
